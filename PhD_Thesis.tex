@@ -1,0 +1,295 @@
+% Template v1.0
+% By William Diego <william.diego@outlook.com>
+% Version 1.0 released 06/08/2015
+%-------------------------- Start ---------------------
+\documentclass[twoside,12pt]{thesis_tb}
+%\documentclass[11pt]{book}
+
+%%%=============================================================
+% Draft Activation: notes
+%%%=============================================================
+\usepackage{ifdraft, blindtext}
+\ifdraft{
+    \usepackage{todonotes}}{ % draft with TODOs
+    \usepackage[disable]{todonotes} % final without TODOs
+}
+%%%=============================================================
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage[printonlyused,withpage]{acronym}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hypernat} %%%% Activate link blue
+\usepackage{lmodern}%font modern
+\usepackage[titletoc,title]{appendix} %%% Appendix package
+\usepackage{bibunits}
+\usepackage{cite}
+\usepackage{fancybox}
+\usepackage[leftcaption]{sidecap}
+\usepackage[labelsep=endash, textfont={footnotesize, singlespacing}, margin=10pt, format=plain, labelfont=bf]{caption}
+\usepackage{fncychap} %en tete chapitrage
+\usepackage{setspace} %interligne simple, double etc...
+\usepackage{fancybox}
+\usepackage{chngcntr}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{3}
+\usepackage{caption} 
+\usepackage{subcaption}
+\renewcommand\theparagraph{\alph{paragraph})}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\usepackage[frenchb,english]{babel}
+\usepackage[pdftex]{hyperref}	
+\usepackage{aeguill}
+\usepackage{times}
+\usepackage{listingsutf8}
+\usepackage{makeidx}
+\usepackage{glossaries}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{epsfig, floatflt,amssymb} 
+\usepackage{moreverb}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage[all]{xy}
+\usepackage{textcomp}
+\usepackage[right]{eurosym}
+\usepackage{algorithm, algorithmic}
+\usepackage{epstopdf}
+\usepackage{lscape}
+%%%=============================================================
+% re-definition of Chapter Title
+%%%=============================================================
+\makeatletter
+\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Huge\bfseries\rm}
+\ChRuleWidth{2pt} % Set RW=4pt
+%======
+\ChNameUpperCase % Make name uppercase
+\ChTitleUpperCase
+
+  \renewcommand{\DOCH}{%
+    \settowidth{\px}{\CNV\FmN{\@chapapp}}
+    \addtolength{\px}{2pt}
+    \settoheight{\py}{\CNV\FmN{\@chapapp}}
+    \addtolength{\py}{1pt}
+
+    \settowidth{\mylen}{\CNV\FmN{\@chapapp}\space\CNoV\thechapter}
+    \addtolength{\mylen}{1pt}
+    \settowidth{\pxx}{\CNoV\thechapter}
+    \addtolength{\pxx}{-1pt}
+
+    \settoheight{\pyy}{\CNoV\thechapter}
+    \addtolength{\pyy}{-2pt}
+    \setlength{\myhi}{\pyy}
+    \addtolength{\myhi}{-1\py}
+    \par
+    \parbox[b]{\textwidth}{%
+    \rule[\py]{\RW}{\myhi}%
+    \hskip -\RW%
+    \rule[\pyy]{\px}{\RW}%
+    \hskip -\px%
+    \raggedright%
+    \CNV\FmN{\@chapapp}\space\CNoV\thechapter%
+    \hskip1pt%
+    \mghrulefill{\RW}%
+    \rule{\RW}{\pyy}\par\nobreak%
+    \vskip -\baselineskip%
+    \vskip -\pyy%
+    \hskip \mylen%
+    \mghrulefill{\RW}\par\nobreak%
+    \vskip \pyy}%
+    \vskip 20\p@}
+
+\renewcommand{\DOTI}[1]{%
+\CTV\FmTi{#1}\par\nobreak
+\vskip 40\p@}
+
+  \renewcommand{\DOTIS}[1]{%
+    \mghrulefill{\RW}\par\nobreak
+    \CTV\FmTi{#1}\par\nobreak
+    \vskip 60\p@
+    }
+\makeatother
+%%%=============================================================
+
+
+\newcommand{\ie}{c.-\`a-d.~}
+\hbadness=10000% pb d'overfull box 
+\hfuzz=50pt
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeindex
+\def\underscore{\char`\_}
+\pdfoptionpdfminorversion=5
+
+\makeatletter
+\renewcommand{\thesection}{\arabic {section}}
+\renewcommand{\SC@figure@vpos}{c}% centrer verticalement le caption avec le package sidecap...
+\renewcommand{\fnum@figure}{\small\textbf{Figure~\thefigure}}
+\renewcommand{\fnum@table}{\small\textbf{Tableau~\thetable}}
+\newcommand\figcaption{\def\@captype{figure}\caption}
+\newcommand\tabcaption{\def\@captype{table}\caption}
+\makeatother
+
+\def\thechapter{\Roman{chapter}}
+
+%%%=============================================================
+
+%-----<START>------
+
+\begin{document}
+
+%=============================================================
+% Pictures Folders Definition 
+%=============================================================
+\graphicspath{{chapter1/fig/}{chapter2/fig/}{chapter3/fig/}}  % Figures input
+
+%%%=============================================================
+% Information
+%%%============================================================= 
+\Titre{Contrôle de trafic et gestion\\ de la QoS "IP centric"\\ dans les réseaux\\mobiles LTE}
+\Titreen{QoS management and traffic control in \\LTE mobile networks based on "IP centric" approach}
+\DateSoutenance{xx xxxxxxxx 2016}
+\DateDefence{xxxxxxxx xx, 2016}
+\Auteur{William David}{Diego Maza}
+\President{M}{Dr}{Prenom}{Nom}{Titre, entité}{Title, entity}
+\Rapporteur{M}{Dr}{Prenom}{Nom}{Titre, entité}{Title, entity}{City, Country2}
+\Rapporteur{M}{Dr}{Prenom}{Nom}{Titre, entité}{Title, entity}{City, Country3}
+\Examinateur{M}{Dr}{Prenom}{Nom}{Titre, entité}{Title, entity}{City, Country4}
+\Examinateur{M}{Dr}{Prenom}{Nom}{Titre, entité}{Title, entity}{City, Country5}
+\Directeur{M}{Prof}{Xavier}{Lagrange}{Professeur, Télécom Bretagne}{Full Professor, Télécom Bretagne}{Directeur de thèse}
+
+\Encadrant{Mme}{Dr}{Isabelle}{Hamchaoui}{Ingénieur de Recherche Senior, Orange Labs}{Senior Research Engineer, Orange Labs}{City, Country}
+
+\Resumes{Titre}{The thesis abstract is the first thing that your examiner reads. It sets the tone of what is to come. On the basis of the abstract alone, before they start the text proper, the examiner will form some expectations about what is in store – how well the thesis is likely to be written, whether it is going to be well argued and evidenced, whether it is going to be lively or dull. While the abstract is a short piece of writing, it is a very important little text.}{The thesis abstract is the first thing that your examiner reads. It sets the tone of what is to come. On the basis of the abstract alone, before they start the text proper, the examiner will form some expectations about what is in store – how well the thesis is likely to be written, whether it is going to be well argued and evidenced, whether it is going to be lively or dull. While the abstract is a short piece of writing, it is a very important little text.}
+
+\Composante{Télécom Bretagne}{Technopôle Brest-Iroise - CS 83818 - 29238 Brest Cedex 3\\ Tél : + 33(0) 29 00 11 11 - Fax : + 33(0) 29 00 10 00}{En accréditation conjointe avec l'Ecole doctorale Matisse}{préparée dans le département Réseaux, Sécurité et Multimédia (RSM) \\ Laboratoire Irisa}
+
+%%%=============================================================
+% Front Cove
+%%%============================================================= 
+\addtocounter{page}{-1}
+\makeFrontCove
+\whitepage
+\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%%%=============================================================
+% Data in French
+%%%============================================================= 
+\cover
+\whitepage
+\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%%%=============================================================
+% Data in English
+%%%============================================================= 
+\coveren
+\whitepage
+\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+~\newpage\thispagestyle{empty}\addtocounter{page}{-1}
+%%%=============================================================
+% Acknowledgements
+%%%============================================================= 
+
+\frontmatter %turns off chapter numbering and uses roman numerals
+\input{./Acknowledgements/acknowledgements}
+
+%%%=============================================================
+% Abstract
+%%%============================================================= 
+
+\input{./Abstract/abstract}
+
+%%%=============================================================
+% Acronyms
+%%%============================================================= 
+
+\input{./acronyms/Acronyms}
+
+%%%=============================================================
+% Contents
+%%%============================================================= 
+\cleardoublepage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Contents}
+\fancyfoot[LE]{\thepage}
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\phantomsection
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents} 
+
+%%%=============================================================
+% Chapters
+%%%============================================================= 
+
+\mainmatter %turns on chapter numbering, resets page numbering and uses arabic numerals for page numbers
+
+
+%}----> Put Chapters here:
+\include{./introduction/introduction}
+\include{./chapter1/chapter1}
+\include{./chapter2/chapter2}
+\include{./chapter3/chapter3}
+% ...
+\include{./conclusion/conclusion}
+
+%%%=============================================================
+% Bibliography
+%%%============================================================= 
+\newpage
+\cleardoublepage %cleardoublepage
+\bibliographystyle{unsrt}
+\bibliography{allBiblio}
+\phantomsection
+
+%%%=============================================================
+%  Appendix
+%%%=============================================================
+
+\begin{appendices}
+
+%}----> Put Appendix here:
+\input{./Appendix/appendixA}
+\input{./Appendix/appendixB}
+%}---->
+
+\end{appendices}
+%%%=============================================================
+%  List of Figures
+%%%============================================================= 
+
+\cleardoublepage
+\phantomsection
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+%%%=============================================================
+%  List of Tables
+%%%============================================================= 
+
+\cleardoublepage
+\phantomsection
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+
+%%%=============================================================
+%  Abstracts End
+%%%============================================================= 
+
+\cleardoublepage
+\newpage\thispagestyle{empty}\addtocounter{page}{1}
+\resumes
+
+%%%============================================================= 
+\end{document}
+
+
