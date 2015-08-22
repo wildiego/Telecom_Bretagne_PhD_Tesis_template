@@ -14,13 +14,19 @@
     \usepackage[disable]{todonotes} % final without TODOs
 }
 %%%=============================================================
+\usepackage[frenchb,english]{babel}
+\RequirePackage[utf8]{inputenc}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
 \usepackage[printonlyused,withpage]{acronym}
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{hypernat} %%%% Activate link blue
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}%font modern
+\rmfamily
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub * cmr/bx/sc}{} %manque une police en lmodern
+
 \usepackage[titletoc,title]{appendix} %%% Appendix package
 \usepackage{bibunits}
 \usepackage{cite}
@@ -36,9 +42,6 @@
 \usepackage{caption} 
 \usepackage{subcaption}
 \renewcommand\theparagraph{\alph{paragraph})}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
-\usepackage[frenchb,english]{babel}
 \usepackage[pdftex]{hyperref}	
 \usepackage{aeguill}
 \usepackage{times}
@@ -59,6 +62,8 @@
 \usepackage{algorithm, algorithmic}
 \usepackage{epstopdf}
 \usepackage{lscape}
+
+\usepackage{blindtext}
 %%%=============================================================
 % re-definition of Chapter Title
 %%%=============================================================
@@ -115,7 +120,14 @@
     }
 \makeatother
 %%%=============================================================
-
+%% space for numbered titles in table of contents
+%%%=============================================================
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{1.5em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{3.0em}{2.0em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{5.0em}{3.0em}}
+\makeatother
+%%%=============================================================
 
 \newcommand{\ie}{c.-\`a-d.~}
 \hbadness=10000% pb d'overfull box 
@@ -139,12 +151,12 @@
 
 \def\thechapter{\Roman{chapter}}
 
+
 %%%=============================================================
 
 %-----<START>------
 
 \begin{document}
-
 %=============================================================
 % Pictures Folders Definition 
 %=============================================================
@@ -218,7 +230,7 @@
 \cleardoublepage
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{Contents}
+\fancyhead[LE,RO]{\itshape Contents}
 \fancyfoot[LE]{\thepage}
 \fancyfoot[RO]{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
@@ -235,12 +247,12 @@
 
 
 %}----> Put Chapters here:
-\include{./introduction/introduction}
-\include{./chapter1/chapter1}
-\include{./chapter2/chapter2}
-\include{./chapter3/chapter3}
+\input{./introduction/introduction}
+\input{./chapter1/chapter1}
+\input{./chapter2/chapter2}
+\input{./chapter3/chapter3}
 % ...
-\include{./conclusion/conclusion}
+\input{./conclusion/conclusion}
 
 %%%=============================================================
 % Bibliography
@@ -269,8 +281,7 @@
 
 \cleardoublepage
 \phantomsection
-\listoffigures
-\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures \addcontentsline{toc}{chapter}{\listfigurename} 
 
 %%%=============================================================
 %  List of Tables
@@ -278,11 +289,10 @@
 
 \cleardoublepage
 \phantomsection
-\listoftables
-\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables \addcontentsline{toc}{chapter}{\listtablename} 
 
 %%%=============================================================
-%  Abstracts End
+%  Abstracts End-page
 %%%============================================================= 
 
 \cleardoublepage

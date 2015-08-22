@@ -126,8 +126,6 @@
 %%%=============================================================
 %Paramètres A4 
 %%%=============================================================
-
-
 \ifpdf
    \pdfpageheight=297mm
    \pdfpagewidth=210mm
@@ -139,26 +137,30 @@
 \setlength{\hoffset}{0.00cm}
 \setlength{\voffset}{0.00cm}
 
-\setlength{\evensidemargin}{0cm} 
-\setlength{\oddsidemargin}{0mm} % 15 mm par def.  
-\setlength{\topmargin}{1mm}
+\setlength{\evensidemargin}{0mm} % Paginas pares
+\setlength{\oddsidemargin}{10mm}   % Impares
+
+\setlength{\topmargin}{-5mm}
 \setlength{\headheight}{0cm} % 1 cm par défaut
 \setlength{\headsep}{1.00cm}
 \setlength{\textheight}{22cm}
-\setlength{\textwidth}{17cm} % 16 cm par déf.
+\setlength{\textwidth}{15cm} % 16 cm par déf.
 \setlength{\marginparsep}{0cm} % 1mm par def.
 \setlength{\marginparwidth}{0cm}
 \setlength{\headheight}{2\baselineskip} 
 \setlength{\footskip}{2.36cm}
+
+
 %%%=============================================================
 %En tete et pied de page
 %%%=============================================================
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\chaptername~\thechapter. #1 }}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thechapter.\thesection~ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\chaptername~\thechapter.~~\textit{#1} }}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter.~~\textit{#1} }{}}
+
 \fancyhf{}
-\fancyhead[RO]{\bfseries\rightmark}
-\fancyhead[LE]{\bfseries\leftmark}
+\fancyhead[RO]{\itshape \rightmark}
+\fancyhead[LE]{\itshape \leftmark}
 \fancyfoot[RO]{\thepage}
 \fancyfoot[LE]{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
