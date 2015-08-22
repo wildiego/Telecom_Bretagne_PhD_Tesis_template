@@ -1,5 +1,5 @@
 # Telecom Bretagne: 
-##PhD Tesis **Latex** Template 
+##PhD Thesis **Latex** Template 
 By William Diego 
 
 ### Version
